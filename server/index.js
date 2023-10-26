@@ -11,12 +11,14 @@ app.use(cors());
 
 //router
 const patientRouter = require("./routes/patient.router");
+const wardRouter = require("./routes/ward.router");
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Patient Management System" });
 });
 
-app.use("/patient", patientRouter);
+app.use("/patients", patientRouter);
+app.use("/wards", wardRouter);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
