@@ -27,6 +27,7 @@ const patientSchema = new mongoose.mongoose.Schema(
       required: true,
     },
     ward: String,
+    duration: Number,
   },
   { timestamps: true }
 );

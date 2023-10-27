@@ -1,8 +1,16 @@
 const Patient = require("../models/patient.model");
 
 const createPatient = async (patientDetails) => {
-  const { name, age, gender, medical_history, phone_no, address, ward } =
-    patientDetails;
+  const {
+    name,
+    age,
+    gender,
+    medical_history,
+    phone_no,
+    address,
+    ward,
+    duration,
+  } = patientDetails;
   try {
     const newPatient = {
       name,
@@ -12,6 +20,7 @@ const createPatient = async (patientDetails) => {
       phone_no,
       address,
       ward,
+      duration,
     };
     const patient = new Patient(newPatient);
     const savedPatient = await patient.save();
