@@ -51,79 +51,81 @@ export const PatientForm = () => {
   };
 
   return (
-    <form action="" className="form__container">
-      <div className="form__item">
-        <label htmlFor="name">Patient Name</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="form__item">
-        <label htmlFor="age">Age</label>
-        <input
-          id="age"
-          type="number"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </div>
-      <div className="form__item">
-        <label htmlFor="gender">Gender</label>
-        <select
-          id="gender"
-          onChange={(e) => setGender(e.target.value)}
-          value={gender}
-        >
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-      <div className="form__item">
-        <label htmlFor="history">Medical History</label>
-        <textarea
-          id="history"
-          value={medicalHistory}
-          onChange={(e) => setMedicalHistory(e.target.value)}
-          cols="30"
-          rows="10"
-        ></textarea>
-      </div>
-      <div className="form__item">
-        <label htmlFor="phone">Phone Number</label>
-        <input
-          type="number"
-          id="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-      </div>
-      <div className="form__item">
-        <label htmlFor="address">Address</label>
-        <input
-          type="text"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          id="address"
-        />
-      </div>
-      <div className="form__item">
-        <label htmlFor="ward">Ward</label>
-        <input
-          type="text"
-          id="ward"
-          value={ward}
-          onChange={(e) => setWard(e.target.value)}
-        />
+    <div className="form__container">
+      <form action="" className="form__body">
         <div className="form__item">
-          <button onClick={handleSumbit}>
-            {patient ? "Update Patient" : "Add Patient"}
-          </button>
+          <label htmlFor="name">Patient Name</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-      </div>
-    </form>
+        <div className="form__item">
+          <label htmlFor="age">Age</label>
+          <input
+            id="age"
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        </div>
+        <div className="form__item">
+          <label htmlFor="gender">Gender</label>
+          <select
+            id="gender"
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
+          >
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div className="form__item">
+          <label htmlFor="history">Medical History</label>
+          <textarea
+            id="history"
+            value={medicalHistory}
+            onChange={(e) => setMedicalHistory(e.target.value)}
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div className="form__item">
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            type="number"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div className="form__item">
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            id="address"
+          />
+        </div>
+        <div className="form__item">
+          <label htmlFor="ward">Ward</label>
+          <input
+            type="text"
+            id="ward"
+            value={ward}
+            onChange={(e) => setWard(e.target.value)}
+          />
+          <div className="form__item">
+            <button onClick={handleSumbit}>
+              {patient ? "Update Patient" : "Add Patient"}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };

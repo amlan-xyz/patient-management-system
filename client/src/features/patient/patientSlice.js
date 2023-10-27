@@ -77,7 +77,6 @@ export const patientSlice = createSlice({
     [updatePatientAsync.fulfilled]: (state, action) => {
       state.status = "success";
       const updatedPatient = action.payload;
-      console.log(updatedPatient);
       const index = state.patients.findIndex(
         (patient) => patient._id === updatedPatient._id
       );

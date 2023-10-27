@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { deletePatientAsync } from "./patient/patientSlice";
+import { deletePatientAsync } from "./patientSlice";
 
 export const PatientDetails = () => {
   const { id } = useParams();
