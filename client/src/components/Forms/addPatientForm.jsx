@@ -23,6 +23,7 @@ export const PatientForm = () => {
   const [phone, setPhone] = useState(patient ? patient.phone_no : "");
   const [address, setAddress] = useState(patient ? patient.address : "");
   const [ward, setWard] = useState(patient ? patient.ward : "");
+  const [duration, setDuration] = useState(patient ? patient.duration : "");
 
   const dispatch = useDispatch();
 
@@ -36,6 +37,7 @@ export const PatientForm = () => {
       phone_no: phone,
       address,
       ward,
+      duration,
     };
     if (patient) {
       dispatch(
@@ -119,11 +121,26 @@ export const PatientForm = () => {
             value={ward}
             onChange={(e) => setWard(e.target.value)}
           />
-          <div className="form__item">
-            <button onClick={handleSumbit}>
-              {patient ? "Update Patient" : "Add Patient"}
-            </button>
-          </div>
+        </div>
+        <div className="form__item">
+          <label htmlFor="duration">Duration of stay</label>
+          <select
+            id="duration"
+            onChange={(e) => setDuration(e.target.value)}
+            value={duration}
+          >
+            <option value="">Select</option>
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+          </select>
+        </div>
+        <div className="form__item">
+          <button onClick={handleSumbit}>
+            {patient ? "Update Patient" : "Add Patient"}
+          </button>
         </div>
       </form>
     </div>
