@@ -14,6 +14,8 @@ export const PatientForm = () => {
     state.patients.patients.find(({ _id }) => _id === id)
   );
 
+  const { wards } = useSelector((state) => state.wards);
+
   const [name, setName] = useState(patient ? patient.name : "");
   const [age, setAge] = useState(patient ? patient.age : "");
   const [gender, setGender] = useState(patient ? patient.gender : "");
@@ -54,6 +56,7 @@ export const PatientForm = () => {
 
   return (
     <div className="form__container">
+      {patient ? <h2>Edit Patient Details</h2> : <h2>Add Patient Details</h2>}
       <form action="" className="form__body">
         <div className="form__item">
           <label htmlFor="name">Patient Name</label>
@@ -115,12 +118,16 @@ export const PatientForm = () => {
         </div>
         <div className="form__item">
           <label htmlFor="ward">Ward</label>
-          <input
-            type="text"
+          <select
             id="ward"
             value={ward}
             onChange={(e) => setWard(e.target.value)}
-          />
+          >
+            <option value="">Select</option>
+            {wards.map((ward) => (
+              <option value={ward.ward_no}>{ward.ward_no}</option>
+            ))}
+          </select>
         </div>
         <div className="form__item">
           <label htmlFor="duration">Duration of stay</label>
@@ -138,7 +145,7 @@ export const PatientForm = () => {
           </select>
         </div>
         <div className="form__item">
-          <button onClick={handleSumbit}>
+          <button className="submit__btn" onClick={handleSumbit}>
             {patient ? "Update Patient" : "Add Patient"}
           </button>
         </div>

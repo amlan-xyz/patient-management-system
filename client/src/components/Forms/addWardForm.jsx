@@ -38,6 +38,7 @@ export const WardForm = () => {
 
   return (
     <div className="form__container">
+      {ward ? <h2>Edit Ward Details</h2> : <h2>Add Ward Details</h2>}
       <form action="" className="form__body">
         <div className="form__item">
           <label htmlFor="wardNo">Ward No.</label>
@@ -67,7 +68,7 @@ export const WardForm = () => {
           />
         </div>
         <div className="form__item">
-          <button onClick={handleSumbit}>
+          <button className="submit__btn" onClick={handleSumbit}>
             {ward ? "Update ward" : "Add Ward"}
           </button>
         </div>

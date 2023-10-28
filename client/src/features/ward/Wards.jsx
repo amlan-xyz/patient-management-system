@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Loader } from "../../components/Loader/Loader";
 import { fetchWardsAsync } from "./wardSlice";
 
 export const WardsView = () => {
@@ -14,24 +15,42 @@ export const WardsView = () => {
   }, [status, dispatch]);
   return (
     <div className="container">
-      <h1>Wards View</h1>
+      <div className="heading">
+        <h1>List of Wards</h1>
+        <Link className="primary__btn" to="/add/wards">
+          Add Ward
+        </Link>
+      </div>
+
       {status === "loading" ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
-        <>
-          <Link to="/add/wards">Add Ward</Link>
-          <ul className="list">
+        <table className="table">
+          <thead>
+            <tr>
+              <td>Ward Name</td>
+              <td>Specialization</td>
+              <td>Capacity</td>
+              <td>Details</td>
+            </tr>
+          </thead>
+          <tbody>
             {wards.map((ward) => {
-              const { _id, ward_no, specialization } = ward;
+              const { _id, ward_no, specialization, capacity } = ward;
               return (
-                <li key={_id} className="list__item">
-                  {ward_no} || {specialization}
-                  <Link to={`/wards/${_id}`}>Details</Link>
-                </li>
+                <tr key={_id} className="list__item">
+                  <td>{ward_no}</td>
+                  <td>{specialization}</td>
+                  <td>{capacity}</td>
+                  <td>
+                    {" "}
+                    <Link to={`/wards/${_id}`}>View</Link>
+                  </td>
+                </tr>
               );
             })}
-          </ul>
-        </>
+          </tbody>
+        </table>
       )}
       {status === "error" && <p>{error}</p>}
     </div>

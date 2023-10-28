@@ -17,15 +17,29 @@ export const WardDetails = () => {
 
   return (
     <div className="details__container">
-      {ward ? (
-        <>
-          <h3>{ward.ward_no}</h3>
-          <Link to={`/wards/${ward._id}/edit`}>Edit</Link>
-          <button onClick={handleDelete}>Delete</button>
-        </>
-      ) : (
-        <h1>Ward Details Not Found</h1>
-      )}
+      <h2>Ward Details</h2>
+      <div className="details__body">
+        {ward ? (
+          <>
+            <h2>{ward.ward_no}</h2>
+            <h3>Specialization</h3>
+
+            <p>{ward.specialization}</p>
+            <h3>Capacity</h3>
+            <p>{ward.capacity}</p>
+            <div className="details__btn-container">
+              <Link className="primary__btn" to={`/wards/${ward._id}/edit`}>
+                Edit
+              </Link>
+              <button className="secondary_btn" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          </>
+        ) : (
+          <h1>Ward Details Not Found</h1>
+        )}
+      </div>
     </div>
   );
 };

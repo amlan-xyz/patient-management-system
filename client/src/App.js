@@ -9,21 +9,25 @@ import PatientsView from "./features/patient/Patients";
 import { WardDetails } from "./features/ward/WardDetails";
 import { WardsView } from "./features/ward/Wards";
 
+import "./App.css";
+
 function App() {
   return (
-    <div className="App">
+    <div className="main">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<PatientsView />} />
-        <Route path="/add/patient" element={<PatientForm />} />
-        <Route path="/patient/:id" element={<PatientDetails />} />
-        <Route path="/patient/:id/edit" element={<PatientForm />} />
-        <Route path="/wards" element={<WardsView />} />
-        <Route path="/add/wards" element={<WardForm />} />
-        <Route path="/wards/:id" element={<WardDetails />} />
-        <Route path="/wards/:id/edit" element={<WardForm />} />
-        <Route path="/hospital/statistics" element={<HospitalView />} />
-      </Routes>
+      <div className="main__body">
+        <Routes>
+          <Route path="/" element={<PatientsView />} />
+          <Route path="/add/patient" element={<PatientForm />} />
+          <Route path="/patient/:id" element={<PatientDetails />} />
+          <Route path="/patient/:id/edit" element={<PatientForm />} />
+          <Route path="/wards" element={<WardsView />} />
+          <Route path="/add/wards" element={<WardForm />} />
+          <Route path="/wards/:id" element={<WardDetails />} />
+          <Route path="/wards/:id/edit" element={<WardForm />} />
+          <Route path="/hospital/statistics" element={<HospitalView />} />
+        </Routes>
+      </div>
     </div>
   );
 }

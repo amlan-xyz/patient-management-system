@@ -54,16 +54,41 @@ export const HospitalView = () => {
 
   return (
     <div className="container">
-      <h1>Hospital View</h1>
-      <p>Total Patients: {hospitalStats.totalPatients}</p>
-      <p>
-        Total Occupancy Rate :{" "}
-        {hospitalStats.totalOccupancyRate.toFixed(2) ?? 0}%
-      </p>
-      <p>
-        Average Stay Length : {hospitalStats.averageStayLength.toFixed(2)} days
-      </p>
-      <p>Top Performing Ward: {hospitalStats.topPerformingWard.ward}</p>
+      <div className="heading">
+        <h1>Hospital Statistics</h1>
+      </div>
+      <table className="table">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Details</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Patients</td>
+            <td>{hospitalStats.totalPatients}</td>
+          </tr>
+          <tr>
+            <td>Total Occupancy Rate</td>
+            <td>{hospitalStats.totalOccupancyRate.toFixed(2) ?? 0}%</td>
+          </tr>
+          <tr>
+            <td>Average Stay Length</td>
+            <td>{hospitalStats.averageStayLength.toFixed(2)} days</td>
+          </tr>
+          <tr>
+            <td>Top Performing Ward</td>
+            <td>{hospitalStats.topPerformingWard.ward}</td>
+          </tr>
+          {hospitalStats.wardOccupants.map(({ ward, count }) => (
+            <tr>
+              <td>Patients in {ward} ward </td>
+              <td>{count}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
