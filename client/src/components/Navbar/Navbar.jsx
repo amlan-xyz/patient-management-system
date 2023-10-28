@@ -12,7 +12,7 @@ export const Navbar = () => {
           <NavLink to="/wards">Wards</NavLink>
         </li>
         <li className="nav__item">
-          <NavLink to="/hospital-statistics">Statistics</NavLink>
+          <NavLink to="/hospital/statistics">Statistics</NavLink>
         </li>
       </ul>
     </div>
