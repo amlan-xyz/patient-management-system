@@ -1,7 +1,16 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 1.2rem 3rem;
+  height: 10vh;
+  box-shadow: var(--shadow);
+  background-color: var(--background-color);
+}
+
+.nav__header {
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
+  font-size: 1.5rem;
 }
 
 .nav__list {
@@ -9,5 +18,14 @@
 }
 
 .nav__item {
-  margin-left: 1rem;
+  margin-left: 2rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav__link:hover {
+  color: var(--primary-color);
 }
