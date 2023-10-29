@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "http://localhost:3001/wards";
+const url = "https://backend-patient-management.onrender.com/wards";
 
 export const fetchWardsAsync = createAsyncThunk(
   "wards/fetchWards",
