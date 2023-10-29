@@ -71,7 +71,7 @@ export const HospitalView = () => {
           </tr>
           <tr>
             <td>Total Occupancy Rate</td>
-            <td>{hospitalStats.totalOccupancyRate.toFixed(2) ?? 0}%</td>
+            <td>{hospitalStats.totalOccupancyRate.toFixed(2)}%</td>
           </tr>
           <tr>
             <td>Average Stay Length</td>
